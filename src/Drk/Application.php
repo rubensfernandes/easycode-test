@@ -50,7 +50,11 @@ class Application {
 	{	
 		$class  = new $this->controller;
 		$method = $this->method;
-		$class->$method();
+
+		if(method_exists($class, $method))
+			$class->$method();
+		else
+			echo 'sua classe deve ter ao menos um metodo index()';
 	}
 
 }
