@@ -1,7 +1,5 @@
 composer.phar
 vendor/
-src/Test
-phpunit.xml
 Admin/
 Site/
 coverage/
