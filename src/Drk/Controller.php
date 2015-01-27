@@ -36,11 +36,11 @@ class Controller {
 
 	public function getController()
 	{
-		$firstUri = $this->uri->getSegments(0);
+		$firstUri = ucfirst($this->uri->getSegments(0));
 
 		if(!$firstUri)
 			return null;
-		
+
 		return $this->getNamespace().'\\Controllers\\'.$firstUri;
 	}
 

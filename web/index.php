@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 
 
 $config['apps'] = array(
-			'Namespace' => 'url',
+			'Admin' => 'admin',
 			'Site' => ''
 		);
 

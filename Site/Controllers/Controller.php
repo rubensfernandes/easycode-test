@@ -5,7 +5,7 @@ namespace Site\Controllers;
 class Controller {
 
 	public function method(){
-		echo 'method da index controller';
+		echo 'method do controller';
 	}
 
 	public function index()
