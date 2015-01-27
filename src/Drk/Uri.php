@@ -2,6 +2,7 @@
 /**
  * This class is reponsable to read the site url and parser that
  */
+namespace Drk;
 
 class Uri{
 
@@ -11,46 +12,72 @@ class Uri{
 	private $port;
 	private $path;
 	private $query;
-
 	private $explodedPath;
 
-
-	public function setUrl($url = null)
+	public function __construct($url)
 	{
-		$this->url = $url != null ? $url : "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+		$this->url = $url;
+		$this->getExplodedPath();
 	}
 
-	public function parserUrl()
+	private function parseUrl()
 	{
-		$urlParsed = parse_url($this->url);
+			$urlParsed = parse_url($this->url);
 
-		foreach ($urlParsed as $key => $value) {
-			$this->$key = $value;
-		}
-
-		return $urlParsed; 
+			foreach ($urlParsed as $key => $value) {
+				$this->$key = $value;
+			}
 	}
 
-	public function explodePath()
+	private function explodePath()
 	{
 		$explodedPath = explode('/', $this->path);
 		$this->explodedPath = array_values(array_filter($explodedPath));
-
-		return $this->explodedPath;
 	}
 
 	public function getExplodedPath()
 	{
-		$this->setUrl();
-		$this->parserUrl();
+		$this->parseUrl();
 		$this->explodePath();
 
 		return $this->explodedPath;
 	}
 
-}
+	public function getSegments($i = null)
+	{	
+		if($i === null)
+			return $this->explodedPath;
 
-$uri = new Uri;
-$uri->setUrl();
-$uri->parserUrl();
-var_dump($uri->getExplodedPath());
+		if(isset($this->explodedPath[(int)$i]))
+			return $this->explodedPath[(int)$i];
+		else
+			return false;
+	}
+
+	public function removeFirstUri()
+	{
+		unset($this->explodedPath[0]);
+		$this->explodedPath = array_values($this->explodedPath);
+	}
+
+	public function filterAppUri($apps)
+	{
+		$firstUri = $this->getSegments(0);
+        $isApp = in_array($firstUri, $apps);
+
+        if($isApp){
+        	$appNamespace = array_search($firstUri,$apps);
+        	$this->AppNamespace = $appNamespace;
+        	$this->removeFirstUri();
+        }else{
+        	$appNamespace = array_search('',$apps);
+        	$this->AppNamespace = $appNamespace;
+        }
+	}
+
+	public function getNamespaceUri()
+	{
+		return $this->AppNamespace;
+	}
+
+}
