@@ -1,5 +1,7 @@
 {
     "require": {
-       "drake/easycode-router": "dev-master"
+       "drake/easycode-router": "dev-master",
+       "doctrine/dbal": "~2.4",
+       "doctrine/orm": "*"
     }
 }
