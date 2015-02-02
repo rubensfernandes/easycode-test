@@ -6,7 +6,7 @@ use Drk\Application;
 
 $config = array();
 
-$config['apps'] = array('V1'=>'v1');
+$config['apps'] = array('Admin'=>'');
 
 $config['routerDefault'] = 'Controller';
 

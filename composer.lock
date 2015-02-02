@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rubensfernandes/easycode.git",
-                "reference": "b6e3ae50ef0603f2e94b6190947caeba3e3f65ea"
+                "reference": "2a8ece53b6d46c62bb1e7f56e0688ac395603d07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rubensfernandes/easycode/zipball/b6e3ae50ef0603f2e94b6190947caeba3e3f65ea",
-                "reference": "b6e3ae50ef0603f2e94b6190947caeba3e3f65ea",
+                "url": "https://api.github.com/repos/rubensfernandes/easycode/zipball/2a8ece53b6d46c62bb1e7f56e0688ac395603d07",
+                "reference": "2a8ece53b6d46c62bb1e7f56e0688ac395603d07",
                 "shasum": ""
             },
             "require": {
@@ -44,7 +44,7 @@
                 }
             ],
             "description": "Biblioteca para reescrita de URL",
-            "time": "2015-02-02 18:25:44"
+            "time": "2015-02-02 18:25:52"
         }
     ],
     "packages-dev": [],
