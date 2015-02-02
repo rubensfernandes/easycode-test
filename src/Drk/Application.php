@@ -3,6 +3,7 @@
 namespace Drk;
 use Drk\Uri;
 use Drk\Controller;
+use Drk\Loader;
 
 class Application {
 
@@ -49,12 +50,13 @@ class Application {
 	public function play()
 	{	
 		$class  = new $this->controller;
+		$class->loader = new Loader($this->namespace);
 		$method = $this->method;
 
 		if(method_exists($class, $method))
 			$class->$method();
 		else
-			echo 'sua classe deve ter ao menos um metodo index()';
+			echo 'metodo: "'.$method.'" n&atilde;o encontrado!';
 	}
 
 }
