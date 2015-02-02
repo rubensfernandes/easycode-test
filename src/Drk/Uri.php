@@ -71,7 +71,11 @@ class Uri{
         	$this->removeFirstUri();
         }else{
         	$appNamespace = array_search('',$apps);
-        	$this->AppNamespace = $appNamespace;
+
+        	if(!$appNamespace)
+        		throw new \Exception("Nenhuma rota encontrada!");
+        	else	
+        		$this->AppNamespace = $appNamespace;
         }
 	}
 
